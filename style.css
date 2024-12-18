@@ -1,11 +1,14 @@
 /* This stylizes the page defaults */
-html,
 body {
+  background-image: url(/background.jpg);
+  overflow-x: hidden;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow: auto;
-  background-image: url(img/geometry.jpg);
 }
 
 /* This stylizes the header area */
