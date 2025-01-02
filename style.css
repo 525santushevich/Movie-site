@@ -1,7 +1,12 @@
 /* This stylizes the page defaults */
+html,
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: auto;
   background-image: url(/background.jpg);
-  overflow-x: hidden;
+  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   display: flex;
