@@ -43,7 +43,7 @@ const vue_app = Vue.createApp({
   methods: {
     /* ADD FUNCTIONS/METHODS FOR STEP 7 HERE */
     getMonthArray: function (datesArray) {
-      const months = "";
+      let months = "";
       switch (datesArray[1]) {
         case 1:
           month = "January";
@@ -83,18 +83,20 @@ const vue_app = Vue.createApp({
       }
       return month + "" + datesArray[2] + "," + datesArray[0];
     },
-    posterClick(index){
-      if(this.movies[index].posterindex < this.movies[index].posters.length-1){
-        this.movies[index].posterindex++
+    posterClick(index) {
+      if (
+        this.movies[index].posterindex >
+        this.movies[index].posters.length - 1
+      ) {
+        this.movies[index].posterindex++;
+      } else {
+        this.movies[index].posterindex = 0;
       }
-      else {
-        this.movies[index].posterindex = 0
-      }
-    }
-    timesText(minutes){
-      const hours = Math.trunc(minutes / 60)
-      const min = minutes - (hours * 60)
-      return `${hours}h ${min}m`
+    },
+    timesText(minutes) {
+      const hours = Math.trunc(minutes / 60);
+      const min = minutes - hours * 60;
+      return `${hours}h ${min}m`;
     },
   },
 });
