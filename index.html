@@ -16,8 +16,7 @@
     <!-- DO NOT CHANGE ANYTHING ABOVE THIS LINE-->
 
     <!-- Javascript Framework (e.g., vue.js) (ADD HERE) -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
 
 
 </head>
@@ -28,7 +27,7 @@
         <div class="header">
 
             <div class="container">
-                <h1 id="app_title">Sophia's Top 10 Movies</h1>
+                <h1 id="app_title">{{ title }}</h1>
             </div>
 
         </div>
@@ -40,24 +39,22 @@
                 <div class="col-md-6" v-for="(movie, index) in movies">
                     <div class="thumbnail">
 
-                        <img class="poster img-fluid" :src="movies[index].posters[movies[index].posterindex]"
-                            @click="posterClick(index)" />
-                        <div class="imageInfo">{{ movie.posterindex + 1}} of {{movie.posters.length }}</div>
+                        <img class="poster img-fluid" @click="posterClick(index)"
+                            :src="movies[index].posters[movies[index].posterindex]" />
+                        <div class="imageInfo"> Poster {{ movies[index].posterindex +1 }} of {{
+                            movies[index].posters.length }}</div>
 
                         <p class="title">{{ movies[index].title }} ({{ movies[index].country }})</p>
                         <p class="score"><i class="bi bi-star" aria-hidden="true"></i> {{ movies[index].iscore }} </p>
-                        <p class="runtime">Runtime: {{ movies[index].runtime }}</p>
-                        <p class="released">Released: {{ movies[index].released }} | Rated: {{ movies[index].rating }}
-                        </p>
-                        <p class="websites">Websites: <a:href='movies[index].imdb'> imdb </a> |
-                                <a:href='movies[index].imdb'>
-                                    website</a></p>
+                        <p class="runtime">Runtime: {{ timeText(movie.runtime) }}</p>
+                        <p class="released">Released: {{ getMonthText(movies[index].released )}} | Rated: {{
+                            movies[0].rating }}</p>
+                        <p class="websites">Websites: <a v-bind:href="movies[0].imdb"> imdb </a> | <a
+                                v-bind:href="movies[0].website">website</a></p>
 
                         <div class="social">
-                            <p class="likes" @click="movies[index].likes++"><i class="bi bi-hand-thumbs-up"
-                                    aria-hidden="true"></i> {{
-                                movies[index].likes
-                                }}</p>
+                            <p class="likes " @click="movies[index].likes++"><i class="bi bi-hand-thumbs-up"
+                                    aria-hidden="true"></i> {{ movies[index].likes }}</p>
                             <p class="dislikes" @click="movies[index].dislikes++"><i class="bi bi-hand-thumbs-down"></i>
                                 {{ movies[index].dislikes }}</p>
                         </div>
@@ -69,8 +66,8 @@
 
         <div class="footer">
             <div class="container">
-                <a id="github" class="btn btn-lg btn-warning">
-                    <i class="bi bi-github me-2"></i>Sophia Antushevich
+                <a id="github" class="btn btn-lg btn-warning" v-bind:href="github" target="_blank">
+                    <i class="bi bi-github me-2"></i>{{ owner }}
                 </a>
             </div>
         </div>

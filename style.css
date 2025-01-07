@@ -22,12 +22,13 @@ body {
 }
 .header h1 {
   display: inline-block;
-  color: white;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px rgb(43, 0, 0);
 }
 
 /* This stylizes the main page area */
 .main {
-  background-color: #f2f2f2;
+  background-color: #ffffff34;
   padding: 40px 0;
 }
 
@@ -127,3 +128,19 @@ body {
 }
 
 /* ADD YOUR LIKE AND DISLIKE HOVER/MOUSEOVER CSS CODE HERE */
+.likes {
+  background-color: #6eca8d;
+  color: white;
+}
+.dislikes {
+  background-color: #d68f8f;
+  color: white;
+}
+.likes:hover {
+  background-color: #9edd87;
+  color: #008700;
+}
+.dislikes:hover {
+  background-color: #fdd6d6;
+  color: #f65a5b;
+}
